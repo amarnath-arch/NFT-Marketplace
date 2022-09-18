@@ -22,7 +22,7 @@ export default function Home() {
   },[]);
 
   async function loadNfts(){
-    console.log(`No. of Nfts are ${nfts.length}`);
+    
     const provider= new ethers.providers.JsonRpcProvider();
     const tokenContract= new ethers.Contract(nftAddress, NFT.abi, provider);
     const marketPlace = new ethers.Contract(marketPlaceAddress, NFTMarketplace.abi,provider);
@@ -45,18 +45,11 @@ export default function Home() {
         name: meta.data.name,
         description: meta.data.description
       };
+      console.log(item);
 
-      // console.log(item);
 
       return item;
     }));
-
-    // console.log(`items are: ${items}`);
-
-    // for(let i=0;i<items.length;++i){
-    //   console.log(items[i].image);
-    // }
-    
 
     setNfts(items);
     setLoadingState('loaded');
@@ -118,15 +111,6 @@ export default function Home() {
     <div className='flex justify-center'>
       <div className="px-4" style={{maxWidth: '1600px'}}>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4'>
-          {/* {
-            nfts.map((nft,i)=>(
-              <div key={i} className="border shadow rounded-xl overflow-hidden">
-              </div>
-            ));
-
-
-          } */}
-
           {
             userNfts
           }

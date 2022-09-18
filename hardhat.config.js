@@ -15,6 +15,10 @@ module.exports = {
     rinkeby:{
       url: RPC_URL,
       MNEMONIC: MNEMONIC
+    },
+    mumbaiTestnet:{
+      url: RPC_URL,
+      MNEMONIC: MNEMONIC
     }
   },
   solidity: {
